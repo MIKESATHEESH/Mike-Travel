@@ -1,0 +1,136 @@
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="description" content="Login - Register Template">
+    <meta name="author" content="Lorenzo Angelino aka MrLolok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+        #date {
+            background-color: #373b3d;
+            margin-top: 6px;
+            width: 180px;
+        }
+        #contact {
+            background-color: #373b3d;
+        }
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+    <div id="container-register">
+        <div id="title">
+            <i class="material-icons lock">lock</i> Register
+        </div>
+
+
+        <form>
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">face</i>
+                </div>
+                <input id="username" placeholder="Full Name" type="text" required class="validate" autocomplete="off">
+            </div>
+
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">phone</i>
+                </div>
+                <input id="contact" placeholder="Number" type="text" required class="validate" autocomplete="off" onkeypress="return isNumberKey(event)" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+            </div>
+
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">calendar_today</i>
+                </div>
+                <input id="date" placeholder="DOB" type="date" required class="validate" autocomplete="off">
+            </div>
+           
+            <div class="input" style="display: flex; align-items: center;">
+                <div class="input-addon">
+                    <i class="material-icons"></i>
+                </div>
+                <label style="margin-right: 10px;">
+                    <input id="gender" type="radio" name="gender" value="male" />
+                    Male
+                </label>
+                <label>
+                    <input id="gender" type="radio" name="gender" value="female" />
+                    Female
+                </label>
+            </div>
+           
+
+
+
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">email</i>
+                </div>
+                <input id="email" placeholder="Email" type="email" required class="validate" autocomplete="off">
+               
+            </div>
+           
+           
+
+
+            <div class="clearfix"></div>
+
+
+           
+
+
+            <div class="clearfix"></div>
+
+
+            <div class="input">
+                <div class="input-addon">
+                    <i class="material-icons">vpn_key</i>
+                </div>
+                <input id="password" placeholder="Password" type="password" required class="validate" autocomplete="off">
+            </div>
+
+
+            <div class="remember-me">
+                <input type="checkbox">
+                <span style="color: #DDD">I accept Terms of Service</span>
+            </div>
+
+
+            <input type="submit" value="Register" />
+           
+        </form>
+        <div class="register">
+            Do you already have an account?
+            <a href="login.html"><button id="register-link">Log In here</button></a>
+        </div>
+    </div>
+</body>
+ 
+<script>            
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode < 48 || charCode > 57) {
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+</html>

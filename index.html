@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wander with MIKE</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+  </head>
+  <body>
+    <header class="header" role="banner" id="top">
+        <div class="container">
+
+          <h1> MIKE </h1>
+          <nav>
+            <ul>
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li class="dropdown">
+                <a href="#">Destinations</a>
+                <ul class="dropdown-content">
+                  <li>
+                    <a href="#">Europe</a>
+                  </li>
+                  <li>
+                    <a href="#">Asia</a>
+                  </li>
+                  <li>
+                    <a href="#">Africa</a>
+                  </li>
+                  <li>
+                    <a href="#">Americas</a>
+                  </li>
+                  </ul>
+              </li>
+              <li>
+                <a href="#">Tours</a>
+              </li>
+              <li>
+                <a href="#">Packages</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+              <li>
+                <a href="#">Contact Us</a>
+              </li>
+              
+            </ul>
+          </nav>
+          <div class="auth-links">
+            <a class="button12" href="login.html">Login</a>
+            <a class="button12" href="register.html">SignUp</a>
+          </div>
+        </div>
+      
+    </header>
+    
+
+<section class="main-home">
+      <div class="main-text">
+        <h1>Discover the world</h1>
+        <h2>Exculsive Travel Packages 2024</h2>
+        <p>Save upto 30% on early bookings</p>
+
+        <button class="main-btn">Book Now</button>
+        <div><img src="./images/FG.jpg" class="FGimage"></img></div>
+      </div>
+    </section>
+
+<!-- Checkpoint 2-->    
+    
+    <section>
+      <div class="row">
+        <div class="section image-container">
+            <img src="./images/Logo.png" alt="MIKE">
+        </div>
+        <div class="section">
+            <h2>Booking Form</h2>
+            <form>
+    <div class="form-group">
+        <label for="whereTo">Where to:</label>
+        <select id="whereTo" name="whereTo">
+            <option value="Select">Select</option>
+            <option value="place1">Taj Mahal</option>
+            <option value="place2">Paris</option>
+            <option value="place3">Maldives</option>
+            <option value="place4">Bali</option>
+            <option value="place5">Great Barrier Reef</option>
+            <option value="place6">Colosseum</option>
+            <option value="place7">Dubai</option>
+            <option value="place8">Angkor Wat</option>
+            <option value="place9">Machu Picchu</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="howManyPeople">How many people:</label>
+        <input type="number" id="howManyPeople" name="howManyPeople" required>
+    </div>
+
+    <div class="form-group">
+        <label for="startDate">Start date:</label>
+        <input type="date" id="startDate" name="startDate" min="<?php echo date('Y-m-d'); ?>" required>
+    </div>
+
+    <div class="form-group">
+        <label for="endDate">End date:</label>
+        <input type="date" id="endDate" name="endDate" required>
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" rows="5" cols="30" minlength="50" maxlength="500" required></textarea>
+    </div>
+
+    <button class="main-btn" type="submit">Book Now</button>
+</form>
+        </div>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (isValidForm()) {
+        alert('Booking successful!');
+    } else {
+        alert('Please fill in all required fields and ensure that the start date is in the future and the end date is after the start date.');
+    }
+});
+
+function isValidForm() {
+    const fields = form.querySelectorAll('input, textarea');
+    for (const field of fields) {
+        if (!field.value) {
+            return false;
+        }
+    }
+
+    const startDate = new Date(form.startDate.value);
+    const endDate = new Date(form.endDate.value);
+
+    // Check if start date is in the future
+    const today = new Date();
+    if (startDate <= today) {
+        return false;
+    }
+
+    // Check if end date is after start date
+    if (endDate <= startDate) {
+        return false;
+    }
+
+    return true;
+}
+    </script>
+
+    </section>
+    <section>
+      <div class="package-gallery">
+        <div class="row">
+          <div class="package-card">
+            <img src="./images/Taj Mahal.jpg" alt="Package 1">
+            <h3>Taj Mahal</h3>
+            <p>The Taj Mahal is a white marble mausoleum in Agra, India that was built by the Mughal emperor Shah Jahan as a tomb for his wife, Mumtaz Mahal</p>
+            <p>Price: $100</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+            <button class="b-btn">Book Now</button>
+          </div>
+          <div class="package-card">
+            <img src="./images/Paris.jpg" alt="Paris">
+            <h3>Paris</h3>
+            <p>Famous Monuments. Eiffel Tower. Paris is known for its gorgeous, imposing monuments. ...</p>
+            <p>Price: $150</p>
+            <p>Rating: ⭐⭐⭐⭐</p>
+            <button class="b-btn">Book Now</button>
+          </div>
+          <div class="package-card">
+            <img src="./images/Maldives.jpg" alt="Maldives">
+            <h3>Maldives</h3>
+            <p>The Maldives is an independent island country in the north-central Indian Ocean. </p>
+            <p>Price: $200</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button class="b-btn">Book Now</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="package-card">
+            <img src="./images/Bali.jpg" alt="Bali">
+            <h3>Bali</h3>
+            <p>Bali is a province of Indonesia and an island paradise known for its natural beauty, culture, and nightlife</p>
+            <p>Price: $200</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button class="b-btn">Book Now</button>
+          </div>
+          <div class="package-card">
+            <img src="./images/Great Barrier Reef.jpg" alt="Great Barrier Reef">
+            <h3>Great Barrier Reef</h3>
+            <p>The Great Barrier Reef is a natural wonder in Australia that is home to thousands of species and is a vital part of the Australian economy</p>
+            <p>Price: $200</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button class="b-btn">Book Now</button>
+          </div>
+          <div class="package-card">
+            <img src="./images/Colosseum.jpg" alt="Colosseum">
+            <h3>Colosseum</h3>
+            <p>The Colosseum, also known as the Flavian Amphitheatre, is an elliptical amphitheater in Rome, Italy. It's one of the world's greatest tourist attractions and a symbol of Rome.</p>
+            <p>Price: $200</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button class="b-btn">Book Now</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="package-card">
+            <img src="./images/Dubai.jpg" alt="Dubai">
+            <h3>Dubai</h3>
+            <p>Dubai is known for its skyscrapers, including the Burj Khalifa, the world's tallest building. Other attractions include the Dubai Museum, 200 man-made islands, and Dubai Creek</p>
+            <p>Price: $200</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button class="b-btn">Book Now</button>
+          </div>
+          <div class="package-card">
+            <img src="./images/Angkor Wat.jpg" alt="Angkor Wat">
+            <h3>Angkor Wat</h3>
+            <p>Angkor Wat is a Buddhist temple complex in Cambodia that is considered one of the world's largest religious monuments</p>
+            <p>Price: $200</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button class="b-btn">Book Now</button>
+          </div>
+          <div class="package-card">
+            <img src="./images/Machu Picchu.jpg" alt="Machu Picchu">
+            <h3>Machu Picchu</h3>
+            <p>Machu Picchu is an ancient Inca city in the Andes Mountains of Peru. It's known for its impressive architecture, natural setting, and historical significance</p>
+            <p>Price: $200</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button class="b-btn">Book Now</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- SERVICE-->
+
+    <section id="services">
+      <h1 class="reviews">Our Services</h1>
+      <div class="service-cards">
+        <div class="service-card">
+          <i class="fas fa-hotel"></i>
+          <h3>Affordable Hotels</h3>
+          <p>We offer a wide range of affordable hotel options to suit every budget and preference.</p>
+        </div>
+        <div class="services">
+          <i class="fas fa-utensil-spoon"></i>
+          <h3>Food & Drinks</h3>
+          <p>Enjoy delicious local and international cuisine at our partner restaurants and cafes.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Safety Guide</h3>
+          <p>Get expert advice on safety and security tips for your trip.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-plane"></i>
+          <h3>Flight Booking</h3>
+          <p>Book your flights with us and get the best deals and discounts.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-car"></i>
+          <h3>Car Rental</h3>
+          <p>Rent a car and explore the destination at your own pace.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-map-marker-alt"> <h3>Local Tours</h3> </i>
+          <p>Discover the local culture and attractions with our guided tours.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!--Gallery secotion-->
+<section class="client-reviews">
+<div class="reviews">
+  <h1 class="">Gallery</h1>
+</div>
+    <div class="gallery">
+      <div class="photo-card">
+        <img src="./images/1.jpg" alt="Image 1">
+      </div>
+      <div class="photo-card">
+        <img src="./images/2.jpg" alt="Image 2">
+      </div>
+      <div class="photo-card">
+        <img src="./images/3.jpg" alt="Image 3">
+      </div>
+      <div class="photo-card">
+        <img src="./images/4.jpg" alt="Image 4">
+      </div>
+      <div class="photo-card">
+        <img src="./images/5.jpg" alt="Image 5">
+      </div>
+      <div class="photo-card">
+      <img src="./images/6.jpg" alt="Image 6">
+      </div>
+      <div class="photo-card">
+        <img src="./images/7.jpg" alt="Image 5">
+      </div>
+      <div class="photo-card">
+      <img src="./images/8.jpg" alt="Image 6">
+      </div>
+      <div class="photo-card">
+        <img src="./images/dino-reichmuth-A5rCN8626Ck-unsplash.jpg" alt="Image 6">
+        </div>
+      <div class="photo-card">
+      <img src="./images/10.jpg" alt="Image 6">
+      </div>
+</section>
+
+<!-- About us -->
+<section id="about-us"></section>
+<div class="reviews">
+<h2>About Us</h2>
+</div>
+  <div class="row">
+    <div class="column">
+      
+      <img src="./images/Logo.png" alt="Company Logo">
+    </div>
+    <div class="column">
+    <p>Mike is a premier travel service company dedicated to providing exceptional travel experiences. Established in 2024, we have been passionate about connecting travelers with the world's most breathtaking destinations.</p>
+      <p>Our team of experienced travel experts is committed to curating personalized itineraries that cater to your unique preferences and interests. Whether you're seeking adventure, relaxation, or cultural immersion, we have the expertise to plan the perfect trip for you.</p>
+      </div>
+  </div>
+</section>
+
+    <!--contact-section-->
+
+    <section class="contact">
+      <div class="contact-info">
+        <div class="first-info">
+          <h1>MIKE</h1>
+
+          <p>ABC Road, <br>ABC ROAD</p>
+          <p>+1234567890</p>
+          <p>Mikeshoping@gmail.com</p>
+          <div class="social-icon">
+            <a href="#"><i class='bx bxl-facebook'></i></a>
+            <a href="#"><i class='bx bxl-twitter' ></i></a>
+            <a href="#"><i class='bx bxl-instagram'></i></a>
+            <a href="#"><i class='bx bxl-youtube'></i></a>
+            <a href="#"><i class='bx bxl-linkedin' ></i></a>
+          </div>
+        </div>
+          <div class="second-info">
+            <h4>Support</h4>
+            <p>Contact us</p>
+            <p>About Page</p>
+            <p>Site Guide</p>
+            <p>Shopping and Returns</p>
+            <p>Privacy</p>
+          </div>
+          <div class="third-info">
+            <h4>Company</h4>
+            <p>About</p>
+            <p>Blog</p>
+            <p>Affiliate</p>
+            <p>Login</p>
+          </div>
+       </div> 
+      
+      </section>
+    <div class="end-text">
+    <p>Copyright © @2024. All Rights Reserved. Designed by SATHEESH MIKE</p>
+    </div>
+  </body>
+</html>
